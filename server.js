@@ -34,7 +34,7 @@ app.use('/api/transactions', transactionsRoutes);
 //Rota inicial para testar o servidor
 
 app.get('/', (req, res) => {
-    res.send('Servidor está rodando'); // Define uma rota inicial para testar o servidor
+    res.send(`Servidor está rodando na porta ${PORT}`); // Define uma rota inicial para testar o servidor
   });
 
 //Configurar o servidor para uma porta específica

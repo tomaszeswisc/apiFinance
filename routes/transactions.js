@@ -5,5 +5,11 @@ const transactionsController = require('../controllers/transactionsController');
 // Definindo uma rota para obter todas as transações
 router.get('/', transactionsController.getAllTransactions);
 
+//Definindo uma rota para adicionar uma nova transação
+router.post('/',transactionsController.addTransaction);
+
+
+
+
 // Exportando o roteador
 module.exports = router;
