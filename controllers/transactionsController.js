@@ -12,9 +12,9 @@ const getAllTransactions = (req, res) => {
   });
 };
 
+//----------------------------- Com verificação de Duplicidade -------------------------------------------------------------
 
 //Função para adicionar uma nova transação 
-//Com verificação de Duplicidade
 const addTransaction = (req,res) => {
     const {date, amount, description, category, account, user_id} = req.body;
 
@@ -36,7 +36,7 @@ const addTransaction = (req,res) => {
         }
   
 
-  //Se a transação não existe - insere no Banco de Dados
+  // Se a transação não existe, insira-a no banco de dados 
     db.query(
         'INSERT INTO transactions (date, amount, description, category, account, user_id) VALUES (?,?,?,?,?,?)',
         [date, amount, description, category, account, user_id],
@@ -53,6 +53,8 @@ const addTransaction = (req,res) => {
   }
 );
 };
+
+
 
 //Função para atualizar uma transação existente (substituição completa)
 const updateTransactionPut = (req, res) => {
@@ -71,6 +73,7 @@ db.query(
 }
 );
 };
+
 
 
 //Função para atualizar uma transação existente (substituição parcial)
