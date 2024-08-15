@@ -55,6 +55,7 @@ const addTransaction = (req,res) => {
 };
 
 
+//----------------- Verificar se a Transação Existe (PUT, PATH, DELETE---------------------------------------------------
 
 //Função para atualizar uma transação existente (substituição completa)
 const updateTransactionPut = (req, res) => {
@@ -69,6 +70,13 @@ db.query(
         res.status(500).send('Erro ao adicionar transação');
     return;
   }
+
+  // verifica se nenhuma linha foi afetada pela consulta
+  if(results.affectedRows===0){
+    res.status(404).send('Transação não encontrada');
+    return;
+  }
+  
   res.send('Transação atualizada com sucesso');
 }
 );
@@ -99,6 +107,13 @@ db.query(
         res.status(500).send('Erro ao adicionar transação');
     return;
   }
+
+// verifica se nenhuma linha foi afetada pela consulta
+if(results.affectedRows===0){
+  res.status(404).send('Transação não encontrada');
+  return;
+}
+
   res.send('Transação atualizada com sucesso');
 }
 );
@@ -117,6 +132,13 @@ db.query('DELETE FROM transactions WHERE id = ?',[id],
         res.status(500).send('Erro ao deletar transação');
     return;
   }
+
+  // verifica se nenhuma linha foi afetada pela consulta
+  if(results.affectedRows===0){
+    res.status(404).send('Transação não encontrada');
+    return;
+  }
+  
   res.send('Transação deletada com sucesso');
 }
 );
