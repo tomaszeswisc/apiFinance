@@ -18,7 +18,7 @@ h1 {
 
 form, .content{
     color: white; /* Define a cor do texto como branco */
-    width: 300px; /* Define a largura do formulário */
+    width: 450px; /* Define a largura do formulário */
     margin: 0 auto; /* Centraliza o formulário horizontalmente */
     text-align: center; /* Centraliza o texto dentro do formulário */
     padding: 20px; /* Adiciona um espaçamento interno ao formulário */

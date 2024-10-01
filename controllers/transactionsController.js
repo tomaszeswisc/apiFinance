@@ -1,4 +1,4 @@
-const db = require('../config/db'); // Importa a conexão com o banco de dados
+const db = require('../config/db'); // Importa a configuração da conexão com o banco de dados a partir do arquivo 'db' localizado na pasta 'config'.
 
 // Função para obter todas as transações
 const getAllTransactions = (req, res) => {
@@ -55,7 +55,7 @@ const addTransaction = (req,res) => {
 };
 
 
-//----------------- Verificar se a Transação Existe (PUT, PATH, DELETE---------------------------------------------------
+//----------------- Verificar se a Transação Existe (PUT, PATH, DELETE)---------------------------------------------------
 
 //Função para atualizar uma transação existente (substituição completa)
 const updateTransactionPut = (req, res) => {
@@ -144,7 +144,7 @@ db.query('DELETE FROM transactions WHERE id = ?',[id],
 );
 };
 
-
+// Exporta as funções 'getAllTransactions', 'addTransaction', 'updateTransactionPut', 'updateTransactionPatch' e 'deleteTransaction' para que possam ser utilizadas em outros módulos da aplicação.
 module.exports = {
   getAllTransactions,
   addTransaction,

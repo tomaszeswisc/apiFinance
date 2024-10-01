@@ -1,9 +1,7 @@
-//importar a biblioteca mysql2 e criar a conexão com o Banco de Dados
-
-const mysql = require('mysql2'); // Importa o pacote mysql2 para conectar ao banco de dados
+const mysql = require('mysql2'); // Importa o módulo 'mysql2', que será utilizado para criar conexões e interagir com um banco de dados MySQL na aplicação.
 
 // Exibe as variáveis de ambiente carregadas
-//depois pode apagar
+// Depois pode apagar
 console.log('DB_HOST:', process.env.DB_HOST);
 console.log('DB_USER:', process.env.DB_USER);
 console.log('DB_PASS:', process.env.DB_PASS);
@@ -24,4 +22,5 @@ db.connect((err) => {
   console.log(`Conectado ao banco de dados ${process.env.DB_NAME}`); // Exibe mensagem de sucesso
 });
 
-module.exports = db; // Exporta a conexão para ser usada em outros arquivos
+// Exporta o objeto 'db', que representa a conexão com o banco de dados, para que ele possa ser utilizado em outras partes da aplicação.
+module.exports = db;
