@@ -44,39 +44,40 @@
 			</form>
 		</div><!-- Movida a <div> -->
 		
-			<script src="api.js"></script> 
-			<!--Faz o link com o arquivo 'api.js', onde a função de (login) está implementada.-->
-			<script>
-			 // Adiciona um listener ao formulário de login que intercepta o envio do formulário.
-				document.querySelector('#loginForm').addEventListener('submit', async (event) => {
-					event.preventDefault(); // Impede o comportamento padrão de envio do formulário para a página.
-			
-					// Obtém os valores dos campos de e-mail e senha do formulário.
-					const email = document.getElementById('email').value;
-					const password = document.getElementById('password').value;
-			
-					// Verifica se os campos de e-mail e senha estão preenchidos. Caso contrário, exibe um alerta.
-					if (!email || !password) {
-						alert('Por favor, preencha todos os campos.');
-						return; // Interrompe a execução se os campos não estiverem preenchidos.
-					}
-			
-					// Chama a função de login e aguarda a resposta da API.
-					const result = await login(email, password);
-			
-					// Verifica se a resposta contém um token.
-					if (result.token) {
-						// Armazena o token JWT no localStorage para uso em futuras requisições autenticadas.
-						localStorage.setItem('token', result.token);
-			
-						// Redireciona o usuário para a página principal após o login bem-sucedido.
-						window.location.href = 'sisfsgpe.html';
-					} else {
-						// Exibe uma mensagem de erro personalizada se o login falhar.
-						alert(result.message || 'Login falhou! Verifique suas credenciais.');
-					}
-				});
-			</script>
+		<script src="api.js"></script> 
+		<!--Faz o link com o arquivo 'api.js', onde a função de (login) está implementada.-->
+		<script>
+		// Adiciona um listener ao formulário de login que intercepta o envio do formulário.
+			document.querySelector('#loginForm').addEventListener('submit', async (event) => {
+				event.preventDefault(); // Impede o comportamento padrão de envio do formulário para a página.
+
+				// Obtém os valores dos campos de e-mail e senha do formulário.
+				const email = document.getElementById('email').value;
+				const password = document.getElementById('password').value;
+
+				// Verifica se os campos de e-mail e senha estão preenchidos. Caso contrário, exibe um alerta.
+				if (!email || !password) {
+					alert('Por favor, preencha todos os campos.');
+					return; // Interrompe a execução se os campos não estiverem preenchidos.
+				}
+
+				// Chama a função de login e aguarda a resposta da API.
+				const result = await login(email, password);
+
+				// Verifica se a resposta contém um token.
+				if (result.token) {
+					// Armazena o token JWT no localStorage para uso em futuras requisições autenticadas.
+					localStorage.setItem('token', result.token);
+
+					// Redireciona o usuário para a página principal após o login bem-sucedido.
+					window.location.href = 'sisfsgpe.html';
+				} else {
+					// Exibe uma mensagem de erro personalizada se o login falhar.
+					alert(result.message || 'Login falhou! Verifique suas credenciais.');
+				}
+			});
+		</script>
+
 			
 	</body>
 </html>
