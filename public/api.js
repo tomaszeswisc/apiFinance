@@ -70,5 +70,5 @@ async function register(name, email, password, birth_date) {
         // Retorna um objeto indicando que o registro falhou, incluindo a mensagem de erro.
         return { success: false, message: error.message };
     }
-
+    
 }
