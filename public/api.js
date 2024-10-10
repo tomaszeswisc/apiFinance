@@ -70,5 +70,30 @@ async function register(name, email, password, birth_date) {
         // Retorna um objeto indicando que o registro falhou, incluindo a mensagem de erro.
         return { success: false, message: error.message };
     }
-    
+
+}
+
+
+// Função para obter as transações
+
+
+async function getTransactions() {
+
+    //Enviar uma requisição GET para a rota 'transactions' da API para obter todas as transações
+
+    const response = await fetch(`${API_URL}/transactions`,{
+
+        method: 'GET', // Define o método HTTP como GET, que solicita dados do servidor sem enviar informações no corpo.
+
+        headers:{
+            //Inclui o tokem JWT no cabeçãlho Authorization para autenticar a requisição, necessário para acessar rotas protegidas
+            
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Obtém o tokem do localStorage e envia em formato Bearer Token.
+        }
+    });
+
+    //Converte a resposta do servidor para JSON e retorna para ser usada na aplicação.
+
+    return response.json(); //Retorna o objeto JSON da resposta
+
 }
