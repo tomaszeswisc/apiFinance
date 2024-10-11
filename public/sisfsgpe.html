@@ -33,10 +33,10 @@
                 </tbody>
             </table>
             <div>
-                <button class="btn" type="button">Editar</button>
-                <button class="btn" type="button">Adicionar</button>
-                <button class="btn" type="button">Remover</button>
-                <button class="btn" type="button">Sair</button>
+                <button class="btn" id="editarBtn">Editar</button>
+                <button class="btn" id="adicionarBtn">Adicionar</button>
+                <button class="btn" id="removerBtn">Remover</button>
+                <button class="btn" id="sairBtn">Sair</button>
             </div>
         </div>
     
@@ -81,6 +81,28 @@
                 });
             }
             
+            //Função para sair e redirecionar para a página inicial.
+            document.getElementById('sairBtn').addEventListener('click', ()=>{
+                localStorage.removeItem('token'); //Remover o token do localStorage
+                window.location.href = 'index.html'; //Redireciona para a pagina incial
+            });
+
+            // Redirecionar para pagina de Alterar as transações
+            document.getElementById('editarBtn').addEventListener('click', ()=>{
+                window.location.href = 'sisfsgpeupdate.html'
+            });
+
+
+            // Redirecionar para pagina de Adição de transações
+            document.getElementById('adicionarBtn').addEventListener('click', ()=>{
+                window.location.href = 'sisfsgpeadd.html'
+            });
+
+            // Redirecionar para pagina de Adição de transações
+            document.getElementById('removerBtn').addEventListener('click', ()=>{
+                window.location.href = 'sisfsgpedelete.html'
+            });
+
             //Adiciona um evento que executa a função 'carregarTransacoes' quando o documento estiver totalmete carregado.
             document.addEventListener('DOMContentLoaded', carregarTransacoes);
 

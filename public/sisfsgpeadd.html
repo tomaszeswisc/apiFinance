@@ -43,7 +43,33 @@
         </form>
         <a href="sisfsgpe.html"><button class="btn">Voltar</button></a>
     </div>
+    <script src="api.js"></script>
+        <!--Faz o link com o arquivo 'api.js', que contem a função 'addTransaction()' responsável por adicionar as transações da API.-->
+    <script>
+        // Adicionar um listener para o formulario de adicionar transação
+        document.querySelector('#addTransactionForm').addEventListener('submit', async(event)=>{
+            event.preventDefault();
 
-    
+            //Obtém os valores do formulário
+            const date = document.getElementById('date').value;
+            const amount = document.getElementById('amount').value;
+            const description = document.getElementById('description').value;
+            const category = document.getElementById('category').value;
+            const account = document.getElementById('account').value;
+
+        //Chama a função para adicionar a transação definida no api.js
+        const result = await addTransaction({date, amount, description, category, account});
+
+        //Verifica se a adição foi bem-sucedida
+        if (result.success) {
+            alert('Transação adicionada com sucesso!');
+            window.location.href = 'sisfsgpe.html'; // Redireciona para a pagina de transações
+        } else {
+            alert('Erro ao adicionar a transação. Tente novamente.');
+        }
+        });
+
+    </script>
+        
 </body>
 </html>
