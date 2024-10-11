@@ -67,7 +67,22 @@
                     return; //Sai da função, já que nao há transaçoes a serem exibidas.
                 }
 
+                // Itera sebre a lista de transações e cria uma linha de tabela para cada transação
+                transacoes.forEach(transacao => {
+                    const tr = document.createElement('tr'); // Criar uma nova linha na tabela.
+                    tr.innerHTML = `
+                        <td>${new Date(transacao.date).toLocaleDateString()}</td><!--Exibe a data formatada-->
+                        <td>${transacao.amount}</td><!--Exibe o valor da transação-->
+                        <td>${transacao.description}</td><!--Exibe a descrição da transação-->
+                        <td>${transacao.category}</td><!--Exibe a categoria da transação-->
+                        <td>${transacao.account}</td><!--Exibe a conta relacionada à transação--> 
+                        `;
+                    tbody.appendChild(tr); // Adiciona a linha à tabela
+                });
             }
+            
+            //Adiciona um evento que executa a função 'carregarTransacoes' quando o documento estiver totalmete carregado.
+            document.addEventListener('DOMContentLoaded', carregarTransacoes);
 
         </script>
         
