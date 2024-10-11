@@ -74,7 +74,10 @@ async function register(name, email, password, birth_date) {
 }
 
 
-// Função para obter as transações
+//------------------------------------ Operações CRUD ---------------------------------------
+
+
+// Função para obter (Read - Ler) todas as transações
 
 
 async function getTransactions() {
