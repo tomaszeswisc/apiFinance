@@ -44,3 +44,10 @@ Consulte o histórico de commits em https://github.com/tomaszeswisc/apiFinance/c
 - Operação aprovada: remover **somente** `.env` da versão atual do repositório, sem modificar código ou reescrever o histórico Git.
 - Registro de recuperação: reconstituir `.env` local copiando `.env.example` e preenchendo credenciais **novas**, sem reutilizar senhas antigas.
 - O histórico antigo continuará contendo dados anteriormente expostos até futura limpeza coordenada. Segredos devem ser revogados.
+
+## 2026-10-15 — conferência de sintaxe automatizada
+
+- Novo arquivo planejado: `.github/workflows/check-syntax.yml`, execução de `node --check server.js` no GitHub Actions.
+- Escopo: verificação estática de sintaxe; não conecta ao banco nem executa login.
+- Remoções: nenhuma. Código-fonte, rotas, segredos e arquivos de configuração não modificados nesta etapa.
+- Recuperação: remover apenas o workflow ou reverter seu commit. O código anterior continua intacto.
