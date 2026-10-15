@@ -29,3 +29,11 @@
 ## Recuperação
 
 Consulte o histórico de commits em https://github.com/tomaszeswisc/apiFinance/commits e examine a versão anterior de cada arquivo pelo seu commit ou blob SHA. **Não restaure senhas antigas expostas**, pois devem ser revogadas. Para recuperar uma função ou regra segura, compare o diff e restaure somente o código necessário.
+
+## Atualização de 15/10/2026 — modelo de ambiente
+
+- Arquivo adicionado: `.env.example` com nomes de variáveis e valores fictícios.
+- **Removido:** nada. `server.js` e `.env` não foram modificados.
+- Motivo: permitir reconstruir a configuração sem guardar credenciais reais na documentação.
+- Commit: https://github.com/tomaszeswisc/apiFinance/commit/064600d5c553cc55efdbb7c015f484f813fad3d2
+- **Pendente:** trocar credenciais comprometidas e só então remover o `.env` rastreado do Git, com plano de limpeza do histórico.
